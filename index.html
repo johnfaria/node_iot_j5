@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Monitoramento </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="socket.io/socket.io.js"></script>
+    
+</head>
+<body>
+    <div class="menu"  id="app">
+            <h1 style="color:crimson">Monitoramento</h1>
+            <h2>Luminosidade</h2>
+            <button class="btn btn-primary" >{{leit1}}</button>
+    </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script>
+       var socket = io();
+        
+        socket.on('leit_lum',function(leit_lum) {
+            app.leit1 = leit_lum;
+        });
+
+       var app = new Vue({
+            el: '#app',
+            data:{
+                leit1: ""
+            }
+        })
+    </script>
+
+</body>
+</html>
+
+
+
+
